@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Indian Premier League T20</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <!-- Bootstrap core CSS -->
+    <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="style.css" />
+    <!--<script data-require="angular.js@1.5.x" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js" data-semver="1.5.11">-->
+        <script data-require="angular.js@1.5.x" src="angular.min.js" data-semver="1.5.11">
+    </script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <h1>Indian Premier League T20</h1>
+    <table class="tstats-table" cellpadding="0" cellspacing="0">
+      <tr>
+        <th>S.N</th>
+        <th colspan="2">Match</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Result</th>
+        <th class="user-name">Siva</th>
+        <th class="user-name">Raghu</th>
+        <th class="user-name">Ramesh</th>
+        <th class="user-name">Bugga</th>
+        <th class="user-name">Arcot</th>
+        <th class="user-name">Khushboo</th>
+        <th class="user-name">Lakku</th>
+        <th class="user-name">Harsh</th>
+        <th class="user-name">Sai</th>
+      </tr>
+      <tr class="points">
+        <td colspan="6" class="text-right">W/T</td>
+        <td>{{win.siva + '/' + total}}</td>
+        <td>{{win.raghu + '/' + total}}</td>
+        <td>{{win.ramesh + '/' + total}}</td>
+        <td>{{win.bugga + '/' + total}}</td>
+        <td>{{win.arcot + '/' + total}}</td>
+        <td>{{win.khushboo + '/' + total}}</td>
+        <td>{{win.lakku + '/' + total}}</td>
+        <td>{{win.harsh + '/' + total}}</td>
+        <td>{{win.sai + '/' + total}}</td>
+      </tr>
+      <tr ng-repeat="d in data">
+        <td>{{d.index}}</td>
+        <td>{{d.match[0]}}</td>
+        <td>{{d.match[1]}}</td>
+        <td>{{d.location}}</td>
+        <td>{{d.date | date:"MMM d"}}</td>
+        <td class="indicator" ng-class="{'result':d.result!=''}"><span>{{d.result}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.siva==d.result && d.result!='','wrong':d.siva!=d.result && d.result!=''}"><span>{{d.siva}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.raghu==d.result && d.result!='','wrong':d.raghu!=d.result && d.result!=''}"><span>{{d.raghu}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.ramesh==d.result && d.result!='','wrong':d.ramesh!=d.result && d.result!=''}"><span>{{d.ramesh}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.bugga==d.result && d.result!='','wrong':d.bugga!=d.result && d.result!=''}"><span>{{d.bugga}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.arcot==d.result && d.result!='','wrong':d.arcot!=d.result && d.result!=''}"><span>{{d.arcot}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.khushboo==d.result && d.result!='','wrong':d.khushboo!=d.result && d.result!=''}"><span>{{d.khushboo}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.lakku==d.result && d.result!='','wrong':d.lakku!=d.result && d.result!=''}"><span>{{d.lakku}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.harsh==d.result && d.result!='','wrong':d.harsh!=d.result && d.result!=''}"><span>{{d.harsh}}</span></td>
+        <td class="indicator" ng-class="{'correct':d.sai==d.result && d.result!='','wrong':d.sai!=d.result && d.result!=''}"><span>{{d.sai}}</span></td>
+      </tr>
+    </table>
+  </body>
+
+</html>
